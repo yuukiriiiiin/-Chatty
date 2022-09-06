@@ -5,43 +5,43 @@ export const Page = () => {
   const maxLength = menuList.length - 1;
   const speed = 20;
 
-  const [menu, setMenu] = useState<string>(menuList[0])
-  const [isStart, setIsStart] = useState<boolean>(false)
-  const [randStart, setRandStart] = useState<number>(0)
+  const [menu, setMenu] = useState<string[]>(['選ぶ', '選ぶ'])
+  const [isStart, setIsStart] = useState<boolean[]>([false, false])
+  const [randStart, setRandStart] = useState<number[]>([0, 0])
 
-
- 
-
-  const startShuffle = () => {
+  const startShuffle = (index: number) => {
     console.log('スタート')
-    setIsStart(true)
+    setIsStart(isStart.map((s, i) => i === index ? true : s))
 
     let key = 0;
 
     const randShuffle = () => {
       if (key > maxLength) key = 0;
-      setMenu(menuList[key]);
+      setMenu(menu.map((m, i) => i === index ? menuList[key] : m));
       key++;
     }
 
-    setRandStart(window.setInterval(randShuffle, speed));
-    console.log('L27: ' + randStart)
+    setRandStart(randStart.map((r, i) => i === index ? window.setInterval(randShuffle, speed) : r));
   }
 
-  const stopShuffle = () => {
+  const stopShuffle = (index: number) => {
     console.log('ストップ')
-    console.log('L32: ' + randStart)
-    setIsStart(false)
+    setIsStart(isStart.map((s, i) => i === index ? false : s))
 
     const random = Math.floor(Math.random() * (maxLength + 1));
-    setMenu(menuList[random]);
-    window.clearInterval(randStart);
+    setMenu(menu.map((m, i) => i === index ? menuList[random] : m))
+
+    window.clearInterval(randStart[index]);
   }
 
   return (
     <div>
-      <p>{menu}</p>
-      <button type="button" onClick={isStart ? stopShuffle : startShuffle}>{isStart ? 'ストップ' : 'スタート'}</button>
+      {menu.map((m, i) => (
+        <div key={i}>
+          <p>{m}</p>
+          <button type="button" onClick={isStart[i] ? () => stopShuffle(i) : () => startShuffle(i)}>{isStart[i] ? 'ストップ' : 'スタート'}</button>
+        </div>
+      ))}
     </div>
   )
 }
