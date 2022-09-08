@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import React, { useState } from 'react'
 
 export const Page = () => {
   const menuList = ['ナスの炒め物', 'カレー（トマト）', 'ハヤシライス', '豚の生姜焼き', 'もやし（海の精（塩）を添えて）と味噌汁']
