@@ -1,3 +1,3 @@
-import {Page} from '../components/page/index'
+import {ShufflePage} from '../components/page/shuffle/index'
 
-export default Page
+export default ShufflePage

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar'
-import { Modal } from '../modal';
+import { Modal } from '../../modal';
 
 export const CalendarPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false)

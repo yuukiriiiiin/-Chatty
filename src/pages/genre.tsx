@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import {Genre} from '../components/genre'
+import {GenrePage} from '../components/page/genre'
 
-export default Genre
+export default GenrePage

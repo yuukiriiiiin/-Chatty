@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export const Genre = () => {
+export const GenrePage = () => {
   const category = ['全て', '中華', '和食', '韓国', '洋食']
   return (
     <ul>
