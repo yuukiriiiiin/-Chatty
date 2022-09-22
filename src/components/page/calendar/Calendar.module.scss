@@ -1,0 +1,24 @@
+.container {
+  button {
+    color: #fff;
+  }
+  :global(.react-calendar) {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    background-color: #87995b;
+  }
+  :global(.react-calendar__month-view__days__day--neighboringMonth) {
+    color: #757575;
+  }
+  :global(.react-calendar__tile--active) {
+    background: #6b7946;
+  }
+  :global(.react-calendar__tile--now) {
+    background: #6b7946;
+  }
+  :global(.react-calendar__tile:enabled:hover) {
+    background-color: #f5bd6f;
+
+  }
+}
