@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
 import { Modal } from '../../modal';
+import styles from './Calendar.module.scss'
 
 export const CalendarPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -18,7 +20,9 @@ export const CalendarPage = () => {
 
   return (
     <div>
-      <Calendar locale="ja-JP" calendarType="US" onClickDay={handleChange} value={value} />
+      <div className={styles.container}>
+        <Calendar locale="hu-HU" calendarType="US" onClickDay={handleChange} value={value} />
+      </div>
       <Modal showModal={showModal} closeModal={closeModal} date={today}  />
     </div>
   )
